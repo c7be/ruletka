@@ -1,12 +1,30 @@
 import random
 
+# czerwone numerki
 RED_NUMBERS = {1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36}
+
+# czarne numerki
 BLACK_NUMBERS = {2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35}
 
-def spin_wheel(): #spin the wheel!
+def spin_wheel():
+    """
+    losuje wynik obrotu koła ruletki.
+
+    Returns:
+        int: Liczba wylosowana przez koło ruletki (od 0 do 36).
+    """
     return random.randint(0, 36)
 
-def get_color(number): #przypisanie kolorkow
+def get_color(number):
+    """
+    określa kolor odpowiadający wylosowanej liczbie.
+
+    Args:
+        number (int): liczba wylosowana na kole ruletki.
+
+    Returns:
+        str: kolor przypisany do liczby ('red', 'black' lub 'green').
+    """
     if number == 0:
         return "green"
     elif number in RED_NUMBERS:
@@ -16,6 +34,11 @@ def get_color(number): #przypisanie kolorkow
     return None
 
 def main():
+    """
+    główna funkcja programu obsługująca grę w ruletkę. 
+    zawiera logikę zarządzania saldem, obstawiania, sprawdzania wyników 
+    oraz interakcję z użytkownikiem.
+    """
     print("Welcome to the Roulette Game!")
     balance = 100
     while balance > 0:
@@ -40,7 +63,7 @@ def main():
                 if number_choice_input == "42":
                     print("😏 You discovered the cheat code! You will always win this round!")
                     cheat_mode = True
-                    number_choice = 0  # anything, doesn't matter
+                    number_choice = 0  #zielony
                 else:
                     number_choice = int(number_choice_input)
                     if number_choice < 0 or number_choice > 36:
