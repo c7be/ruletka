@@ -1,4 +1,4 @@
-import random
+import random #importowanie random w celu losowania liczby na kole
 
 # czerwone numerki
 RED_NUMBERS = {1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36}
@@ -63,7 +63,7 @@ def main():
                 if number_choice_input == "42":
                     print("😏 You discovered the cheat code! You will always win this round!")
                     cheat_mode = True
-                    number_choice = 0  #zielony
+                    number_choice = 0  #zielony win
                 else:
                     number_choice = int(number_choice_input)
                     if number_choice < 0 or number_choice > 36:
@@ -85,7 +85,7 @@ def main():
 
         print(f"The wheel landed on: {result} ({result_color})")
 
-        #matma!
+        #matma
         if choice_type == "number" and (result == number_choice or cheat_mode):
             winnings = bet * 35
             print(f"You win! You earned ${winnings}")
